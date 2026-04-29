@@ -846,14 +846,21 @@ footer {
    CEO SECTION — RECTANGLE BACKGROUND
    ========================================================= */
 
+
+/* ============================
+   CEO SECTION — FULL WIDTH BG
+   ============================ */
+
 .ceo-section {
+    width: 100%;
+    background: #FFF9F2; /* soft beige full width */
+    padding: 8rem 0;
     display: flex;
     justify-content: center;
-    padding: 8rem 2rem;
 }
 
 .ceo-bg {
-    background: #FFFCF7;
+    background: white;
     padding: 4rem;
     border-radius: 25px;
     display: flex;
@@ -861,6 +868,7 @@ footer {
     align-items: center;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
+
 
 .ceo-img-box img {
     width: 340px;

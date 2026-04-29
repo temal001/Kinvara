@@ -1,5 +1,5 @@
 // =========================
-// FLIP CARDS (3 ABOUT CARDS)
+// FLIP CARDS (ABOUT + CEO)
 // =========================
 
 document.querySelectorAll(".about-card").forEach(card => {
@@ -31,7 +31,7 @@ document.querySelectorAll(".about-card").forEach(card => {
 
 
 // =========================
-// TESTIMONIAL CAROUSEL (FIXED)
+// TESTIMONIAL CAROUSEL
 // =========================
 
 let currentIndex = 0;

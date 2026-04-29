@@ -8,77 +8,149 @@
    <title>Kinavara</title>
 
    <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Outfit:wght@100..900&display=swap');
    </style>
 </head>
-    <body>
-        
+    
+<body>
 
-
-
-
+<!-- NAV -->
 <header>
-    <div class="logo-img">
-        <a href="index.html"><img src="images/kinavaralogo.png" alt="Kinvara Logo"></a>
-    </div>
+    <div class="nav-wrapper">
 
-    <div class="hamburger">
-        <span></span><span></span><span></span>
-    </div>
+        <div class="logo-img">
+            <a href="index.html">
+                <img src="images/kinavaralogo.png" alt="Kinvara Logo">
+            </a>
+        </div>
 
-    <nav>
-        <a href="about.html" class="Navoptions">About</a>
-        <a href="#product-section">Product</a>
-        <a href="sign_up.html">Shop</a>
-    </nav>
+        <nav class="nav-pill">
+            <a href="about.html">About</a>
+            <a href="#product-section">Product</a>
+            <a href="sign_up.html">Shop</a>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+
+    </div>
 </header>
 
+<main>
+
 <!-- HERO -->
-   <section class="about-hero-full reveal">
+<section class="about-hero-full reveal">
     <img src="images/smilingholdingheadphones.jpg" alt="About Image">
     <div class="about-hero-overlay">
         <h1>About Us</h1>
         <p>Where innovation meets sound.</p>
     </div>
 </section>
+<!-- ⭐ FLIP CARD SECTION -->
+<section class="about-cards reveal">
 
-<!-- SECTION 1 -->
-<section class="about-block reveal">
-    <h1>Our Story</h1>
-    <h2>A bit of history</h2>
-    <p>
-        Kinvara, founded in 2010, has been upincoming in the audio listening industry. 
-        Our journey began with a goal: to make headphones that create unparalleled audio. 
-        Over the past 14 years, we've grown into a trusted company by many, as we are known 
-        for our commitment to perfection.
-    </p>
+    <!-- CARD 1 -->
+    <div class="about-card">
+        <div class="flip-inner">
+
+            <!-- FRONT -->
+            <div class="flip-front">
+                <img src="images/holdingmore.jpg" alt="">
+                <div class="card-overlay">
+                    <h3>Our Story</h3>
+                    <button class="outline-btn">Learn More</button>
+                </div>
+            </div>
+
+            <!-- BACK -->
+            <div class="flip-back">
+                <span class="back-arrow">←</span>
+                <h3>Our Story</h3>
+                <p>
+                    Kinvara began with a belief that audio should feel personal — crafted with intention and emotion.
+                </p>
+                <button class="outline-btn">Close</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="about-card">
+        <div class="flip-inner">
+
+            <div class="flip-front">
+                <img src="images/fullheadphones.jpg" alt="">
+                <div class="card-overlay">
+                    <h3>Our Mission</h3>
+                    <button class="outline-btn">Learn More</button>
+                </div>
+            </div>
+
+            <div class="flip-back">
+                <span class="back-arrow">←</span>
+                <h3>Our Mission</h3>
+                <p>
+                    We aim to create a perfect listening experience using cutting‑edge engineering and thoughtful design.
+                </p>
+                <button class="outline-btn">Close</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="about-card">
+        <div class="flip-inner">
+
+            <div class="flip-front">
+                <img src="images/techteam.jpg" alt="">
+                <div class="card-overlay">
+                    <h3>Our Values</h3>
+                    <button class="outline-btn">Learn More</button>
+                </div>
+            </div>
+
+            <div class="flip-back">
+                <span class="back-arrow">←</span>
+                <h3>Our Values</h3>
+                <p>
+                    We believe audio should be intentional, emotional, and crafted with purpose.
+                </p>
+                <button class="outline-btn">Close</button>
+            </div>
+
+        </div>
+    </div>
+
 </section>
 
-<!-- SECTION 2 -->
-<section class="about-block reveal">
-    <h1>Our Mission</h1>
-    <h2>What we want for you</h2>
-    <p>
-        At Kinvara, our mission is to create a perfect listening experience using 
-        cutting-edge technology and only the best craftsmanship. We believe in the 
-        power of music to inspire and connect people, and we strive to make that 
-        experience as immersive as possible.
-    </p>
-</section>
-    <!-- SECTION 3 -->
-    <section class="about-block reveal">
-    <h1>Why We Exist</h1>
-    <h2>Sound with intention</h2>
-    <p>
-        Kinvara was built on a simple belief: audio should feel personal. 
-        Not generic, not mass‑produced — but crafted with intention. 
-        Every product we create is designed to bring clarity, emotion, 
-        and depth back into your listening experience.
-    </p>
+
+<!-- ⭐ CEO SECTION WITH RECTANGLE BACKGROUND -->
+<section class="ceo-section reveal">
+    <div class="ceo-bg">
+
+        <div class="ceo-img-box">
+            <img src="images/ceo.jpg" alt="">
+        </div>
+
+        <div class="ceo-text">
+            <h2>Meet the Creator</h2>
+            <p>
+                The visionary behind Kinvara believes sound should be crafted with intention,
+                emotion, and precision.
+            </p>
+            <button class="outline-btn ceo-learn">Learn More</button>
+        </div>
+
+    </div>
 </section>
 
 
-<!-- TESTIMONIAL CAROUSEL -->
+<!-- ⭐ TESTIMONIALS -->
 <section class="testimonial-section reveal">
     <h1>Customer Testimonials</h1>
     <h2>You heard it here first!</h2>
@@ -87,18 +159,18 @@
         
         <div class="testimonial-card active">
             <div class="testimonial-img">
-                <img src="Images/user1.jpg" alt="">
+                <img src="images/user1.jpg" alt="">
             </div>
             <p>"The Kinvara Super headphones are a game-changer! The noise cancellation is incredible."</p>
-            <span>- Monica W..</span>
+            <span> - Monica W.</span>
         </div>
 
         <div class="testimonial-card">
             <div class="testimonial-img">
-                <img src="Images/user2.jpg" alt="">
+                <img src="images/user2.jpg" alt="">
             </div>
             <p>"Nothing comes close to the Kinvara Super. Comfortable, stylish, and crystal clear."</p>
-            <span>- Jamie L.</span>
+            <span> - Jamie L.</span>
         </div>
 
         <div class="testimonial-card">
@@ -106,7 +178,7 @@
                 <img src="images/user3.jpg" alt="">
             </div>
             <p>"Kinvara redefined premium audio for me. Every detail feels intentional."</p>
-            <span>- Morgan S.</span>
+            <span> - Morgan S.</span>
         </div>
 
     </div>
@@ -117,14 +189,13 @@
     </div>
 </section>
 
-
-</main>
-
+    </main>
+<!-- FOOTER -->
 <footer class="footer reveal">
     <div class="footer-container">
 
         <div class="footer-logo">
-            <img src="Images/kinavaralogo.png" alt="Kinvara Logo">
+            <img src="images/kinavaralogo.png" alt="Kinvara Logo">
         </div>
 
         <div class="footer-links">
@@ -137,9 +208,8 @@
 
     </div>
 </footer>
-        <script src="about.js"></script>
-    </body>
-    
+
+<script src="about.js"></script>
+   
+</body>
 </html>
-
-

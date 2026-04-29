@@ -35,10 +35,16 @@ body{
    2. HEADER / NAVIGATION
    ========================================================= */
 header {
-    width: 100%;
-    padding: 2rem 4rem;
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 92%;
+    z-index: 10000;
     background: transparent;
+    padding: 0; /* remove padding so it floats cleanly */
 }
+
 
 .nav-wrapper {
     display: flex;
@@ -59,22 +65,7 @@ header {
     align-items: center;
     gap: 2rem;
 
-    padding: 0.6rem 1.6rem; /* thinner */
-    background: rgba(255, 252, 247, 0.65);
-    backdrop-filter: blur(12px);
-
-    border-radius: 50px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.10);
-
-    border: 1px solid rgba(255,255,255,0.5);
-}
-
-.nav-pill {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-
-    padding: 0.6rem 1.6rem;
+    padding: 1rem 2.4rem;
     background: rgba(255, 252, 247, 0.65);
     backdrop-filter: blur(12px);
 
@@ -82,13 +73,17 @@ header {
     box-shadow: 0 4px 18px rgba(0,0,0,0.10);
     border: 1px solid rgba(255,255,255,0.5);
 
-    width: auto; /* THIS prevents stretching */
-    flex-shrink: 0; /* prevents it from expanding */
+    width: auto;
+    flex-shrink: 0;
 }
+
 .nav-pill a {
     font-size: 1.6rem;
-    color: #333;
-    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6f6f6f;
+    font-weight: 500;
+
     padding-bottom: 0.2rem;
     border-bottom: 2px solid transparent;
     transition: 0.3s ease;
@@ -132,7 +127,16 @@ header {
     transition: 0.3s ease;
 }
 
+@media (max-width: 520px) {
 
+    .nav-pill a {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
 
 /* =========================================================
    3. HERO SECTION — CURVED IMAGE, PREMIUM
@@ -681,7 +685,7 @@ footer {
 }
 
 /* =========================================================
-   LARGE DESKTOP / IMAC — min-width: 1600px
+   ABOUT HERO (unchanged)
    ========================================================= */
 .about-hero-full {
     position: relative;
@@ -712,123 +716,364 @@ footer {
 }
 
 
-/* ABOUT BLOCKS */
-.about-block {
-    max-width: 900px;
-    margin: 8rem auto;
+/* =========================================================
+   ABOUT PAGE — FLIP CARDS (UPDATED)
+   ========================================================= */
+
+.about-cards {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    padding: 8rem 2rem;
+    flex-wrap: wrap;
+}
+
+/* FLIP CARD CONTAINER */
+.about-card {
+    width: 380px;      /* bigger */
+    height: 420px;     /* bigger */
+    perspective: 1200px;
+    cursor: pointer;
+}
+
+/* INNER WRAPPER */
+.flip-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.7s ease;
+    transform-style: preserve-3d;
+}
+
+/* FLIP STATE */
+.about-card.active .flip-inner {
+    transform: rotateY(180deg);
+}
+
+/* FRONT + BACK SHARED */
+.flip-front, .flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+
+    /* SQUARE corners */
+    border-radius: 0;
+
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* FRONT */
+.flip-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(75%);
+    transition: 0.3s ease;
+}
+
+.about-card:hover .flip-front img {
+    filter: brightness(90%);
+    transform: scale(1.05);
+}
+
+.card-overlay {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
-    background-color: #FFFCF7;
-    padding: 4rem 3rem;
-    border-radius: 20px;
+    color: white;
+}
+
+.card-overlay h3 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+}
+
+/* Transparent outline button */
+.outline-btn {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 0.8rem 2.4rem;
+    border-radius: 50px;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.outline-btn:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* BACK */
+.flip-back {
+    background: #FFFCF7;
+    transform: rotateY(180deg);
+    padding: 3rem;
+    text-align: center;
+}
+
+.flip-back h3 {
+    font-size: 2.6rem;
+    color: #A44D18;
+    margin-bottom: 1rem;
+}
+
+.flip-back p {
+    font-size: 1.6rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* BACK ARROW */
+.back-arrow {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    font-size: 2.6rem;
+    cursor: pointer;
+    color: #A44D18;
+}
+
+
+/* =========================================================
+   CEO SECTION — RECTANGLE BACKGROUND
+   ========================================================= */
+
+.ceo-section {
+    display: flex;
+    justify-content: center;
+    padding: 8rem 2rem;
+}
+
+.ceo-bg {
+    background: #FFFCF7;
+    padding: 4rem;
+    border-radius: 25px;
+    display: flex;
+    gap: 4rem;
+    align-items: center;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-.about-block h1 {
-    font-size: 4rem;
-    color: #5d3216;
+.ceo-img-box img {
+    width: 340px;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-.about-block h2 {
-    font-size: 2.4rem;
+.ceo-text {
+    max-width: 420px;
+}
+
+.ceo-text h2 {
+    font-size: 3.4rem;
     color: #A44D18;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
-.about-block p {
-    font-size: 1.8rem;
-    color: #656565;
-    line-height: 1.6;
+.ceo-text p {
+    font-size: 1.7rem;
+    color: #555;
+    margin-bottom: 2rem;
 }
+/* ============================
+   TESTIMONIALS — FIXED + PREMIUM
+   ============================ */
 
-/* TESTIMONIALS */
 .testimonial-section {
     text-align: center;
     padding: 8rem 2rem;
 }
 
+.testimonial-section h1 {
+    font-size: 3.6rem;
+    color: #A44D18;
+    margin-bottom: 0.5rem;
+}
+
+.testimonial-section h2 {
+    font-size: 1.8rem;
+    color: #555;
+    margin-bottom: 4rem;
+}
+
+/* Carousel container */
 .testimonial-carousel {
-    max-width: 900px;
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
 }
 
+/* Testimonial card */
 .testimonial-card {
-    display: none;
-    background-color: #FFFCF7;
-    padding: 4rem 3rem;
+    width: 600px;
+    padding: 3rem;
+    background: #FFFCF7;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.4s ease;
+    position: absolute;
 }
 
+/* Active card */
 .testimonial-card.active {
-    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    position: relative;
 }
 
-.testimonial-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-}
-
-.testimonial-img {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 2rem;
-}
-
+/* Image */
 .testimonial-img img {
-    width: 100%;
-    height: 100%;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     object-fit: cover;
+    margin-bottom: 1.5rem;
 }
 
+/* Text */
 .testimonial-card p {
-    font-size: 2rem;
-    color: #333;
-    line-height: 1.6;
+    font-size: 1.6rem;
+    color: #444;
+    margin-bottom: 1rem;
 }
 
 .testimonial-card span {
-    display: block;
-    margin-top: 1rem;
-    font-size: 1.6rem;
-    color: #A44D18;
+    font-size: 1.4rem;
+    color: #777;
 }
 
+/* Buttons */
 .carousel-buttons {
     margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
 }
 
 .carousel-buttons button {
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 1rem 2rem;
+    background: transparent;
+    border: 2px solid #A44D18;
+    color: #A44D18;
+    padding: 0.8rem 1.6rem;
+    border-radius: 50px;
     font-size: 2rem;
-    border-radius: 10px;
     cursor: pointer;
     transition: 0.3s ease;
 }
 
 .carousel-buttons button:hover {
-    background-color: #f4f4f4;
+    background: #A44D18;
+    color: white;
 }
 
+/* ============================
+   TESTIMONIALS — FIXED + PREMIUM
+   ============================ */
 
- 
+.testimonial-section {
+    text-align: center;
+    padding: 8rem 2rem;
+}
 
+.testimonial-section h1 {
+    font-size: 3.6rem;
+    color: #A44D18;
+    margin-bottom: 0.5rem;
+}
 
+.testimonial-section h2 {
+    font-size: 1.8rem;
+    color: #555;
+    margin-bottom: 4rem;
+}
 
-    signup-form-box {
+/* Carousel container */
+.testimonial-carousel {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
+    position: relative;
 }
+
+/* Testimonial card */
+.testimonial-card {
+    width: 600px;
+    padding: 3rem;
+    background: #FFFCF7;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.4s ease;
+    position: absolute;
+}
+
+/* Active card */
+.testimonial-card.active {
+    opacity: 1;
+    transform: translateY(0);
+    position: relative;
+}
+
+/* Image */
+.testimonial-img img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+}
+
+/* Text */
+.testimonial-card p {
+    font-size: 1.6rem;
+    color: #444;
+    margin-bottom: 1rem;
+}
+
+.testimonial-card span {
+    font-size: 1.4rem;
+    color: #777;
+}
+
+/* Buttons */
+.carousel-buttons {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.carousel-buttons button {
+    background: transparent;
+    border: 2px solid #A44D18;
+    color: #A44D18;
+    padding: 0.8rem 1.6rem;
+    border-radius: 50px;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.carousel-buttons button:hover {
+    background: #A44D18;
+    color: white;
+}
+
+
 
 .signup-form {
     opacity: .95;

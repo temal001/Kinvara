@@ -1,14 +1,55 @@
-const cards = document.querySelectorAll(".testimonial-card");
-let i = 0;
+// =========================
+// FLIP CARDS (3 ABOUT CARDS)
+// =========================
+
+document.querySelectorAll(".about-card").forEach(card => {
+    const inner = card.querySelector(".flip-inner");
+    const backArrow = card.querySelector(".back-arrow");
+    const closeBtn = card.querySelector(".flip-back .outline-btn");
+
+    // Flip open
+    card.addEventListener("click", () => {
+        card.classList.add("active");
+    });
+
+    // Flip closed (arrow)
+    if (backArrow) {
+        backArrow.addEventListener("click", (e) => {
+            e.stopPropagation();
+            card.classList.remove("active");
+        });
+    }
+
+    // Flip closed (button)
+    if (closeBtn) {
+        closeBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            card.classList.remove("active");
+        });
+    }
+});
+
+
+// =========================
+// TESTIMONIAL CAROUSEL (FIXED)
+// =========================
+
+let currentIndex = 0;
+const testimonialCards = document.querySelectorAll(".testimonial-card");
+
+function showCard(index) {
+    testimonialCards.forEach(card => card.classList.remove("active"));
+    testimonialCards[index].classList.add("active");
+}
 
 document.getElementById("next").onclick = () => {
-    cards[i].classList.remove("active");
-    i = (i + 1) % cards.length;
-    cards[i].classList.add("active");
+    currentIndex = (currentIndex + 1) % testimonialCards.length;
+    showCard(currentIndex);
 };
 
 document.getElementById("prev").onclick = () => {
-    cards[i].classList.remove("active");
-    i = (i - 1 + cards.length) % cards.length;
-    cards[i].classList.add("active");
+    currentIndex = (currentIndex - 1 + testimonialCards.length) % testimonialCards.length;
+    showCard(currentIndex);
 };
+
+

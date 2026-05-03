@@ -1,9 +1,8 @@
 // =========================
-// FLIP CARDS (ABOUT + CEO)
+// FLIP CARDS (ABOUT SECTION)
 // =========================
 
 document.querySelectorAll(".about-card").forEach(card => {
-    const inner = card.querySelector(".flip-inner");
     const backArrow = card.querySelector(".back-arrow");
     const closeBtn = card.querySelector(".flip-back .outline-btn");
 
@@ -31,6 +30,34 @@ document.querySelectorAll(".about-card").forEach(card => {
 
 
 // =========================
+// CEO FLIP (CEO RECTANGLE FLIPS IN PLACE)
+// =========================
+
+// The CEO rectangle itself is the flip card
+const ceoCard = document.querySelector(".ceo-card");
+const ceoLearnBtn = document.querySelector(".ceo-learn-btn");
+const ceoBack = document.querySelector(".ceo-back");
+const ceoClose = document.querySelector(".ceo-close");
+
+// Flip open
+ceoLearnBtn.addEventListener("click", () => {
+    ceoCard.classList.add("active");
+});
+
+// Flip closed (arrow)
+ceoBack.addEventListener("click", (e) => {
+    e.stopPropagation();
+    ceoCard.classList.remove("active");
+});
+
+// Flip closed (button)
+ceoClose.addEventListener("click", (e) => {
+    e.stopPropagation();
+    ceoCard.classList.remove("active");
+});
+
+
+// =========================
 // TESTIMONIAL CAROUSEL
 // =========================
 
@@ -51,5 +78,3 @@ document.getElementById("prev").onclick = () => {
     currentIndex = (currentIndex - 1 + testimonialCards.length) % testimonialCards.length;
     showCard(currentIndex);
 };
-
-
